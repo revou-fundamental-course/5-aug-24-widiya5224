@@ -1,4 +1,4 @@
-const bmiText = document.getElementById("hasil");
+const bmiText = document.getElementById("bmi");
 const descText = document.getElementById("penjelasan");
 const form = document.querySelector("form");
 
@@ -23,23 +23,22 @@ function onFormHitung(e){
     }
 
     const tinggiInMeters = tinggi/100;
-    const hasil=berat/Math.pow(tinggiInMeters);
+    const bmi=berat/Math.pow(tinggiInMeters);
     const penjelasan = interpretPenjelasan(penjelasan);
 
-    bmiText.textContent=hasil.toFixed(2)
-    bmiText.className=hasil
+    bmiText.textContent=hitung.toFixed(2)
+    bmiText.className=hitung
     descText.innerHTML= `youre <strong>${penjelasan}</strong>`;
 
- }
+}
 
- function interpretPenjelasan(penjelasan) {
-    if (hasil<18.5){
+function interpretPenjelasan(penjelasan) {
+    if (bmi<18.5){
         return "kekurangan berat badan";
-    } else if (hasil<25){
+    } else if (bmi<25){
         return "Normal";
-    } else if (hasil<30){
+    } else if (bmi<30){
         return "Kelebihan berat badan";
-    } else (hasil>30){
+    } else (bmi>30)
         return "Obesitas";
     }
-}
